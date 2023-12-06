@@ -55,7 +55,7 @@ CWD = os.getcwd
     slash = SlashCommand(bot, sync_commands=True)
 
 # On Bot start
-@bot.event
+@discord.bot.event
 async def on_ready():
 
     # Get the IP
@@ -107,7 +107,7 @@ async def on_ready():
 ## Slash commands
     
     #Help Command
-    @slash_command(name="Help", description="Sends a list of all commands")
+    @discord.slash_command(name="Help", description="Sends a list of all commands")
         if message.channel.name != session_id:
         return
 
@@ -115,7 +115,7 @@ async def on_ready():
             await message.reply(embed=discord.Embed(title="Help", description=f"```{commands}```", color=0xfafafa))
     
     #Ping Command
-    @slash_command(name="Ping", description="Show the ping")
+    @discord.slash_command(name="Ping", description="Show the ping")
         if message.channel.name != session_id:
         return
 
