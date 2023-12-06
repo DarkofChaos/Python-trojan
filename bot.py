@@ -4,6 +4,11 @@ from Crypto.Cipher import AES
 from PIL import ImageGrab
 from datetime import datetime
 
+APPDATA = os.getenv("APPDATA")
+LOCALAPPDATA = os.getenv("LOCALAPPDATA")
+TEMP = os.getenv("TEMP")
+CWD = os.getcwd
+
 # Read config file
     def load_config(file_path):
     config = configparser.ConfigParser()
