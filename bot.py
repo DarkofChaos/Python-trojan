@@ -111,7 +111,7 @@ async def on_ready():
         if message.channel.name != session_id:
         return
 
-        async def Help(inter):
+        async def Help():
             await message.reply(embed=discord.Embed(title="Help", description=f"```{commands}```", color=0xfafafa))
     
     #Ping Command
@@ -119,7 +119,7 @@ async def on_ready():
         if message.channel.name != session_id:
         return
 
-        async def Ping(inter):
+        async def Ping():
             embed = discord.Embed(title="Ping", description=f"```{round(bot.latency * 1000)}ms```", color=0xfafafa)
         await message.reply(embed=embed)
 
